@@ -1,5 +1,7 @@
-#IMPORTING LIBRARIES
+#This file defines the entry point for the web application
+#This also defines what URLs the API responds to
 
+#IMPORTING LIBRARIES
 #Import FastAPI library
 from fastapi import FastAPI
 #Import Middleware library
@@ -12,16 +14,17 @@ app = FastAPI(
     version = "1.0.0"
 )
 
-#Add the Middleware
+#Configure CORS (Cross-Origin Resource Sharing)
+#This allows our React frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["HTTP://localhost:5000"],
+    allow_origins = ["HTTP://localhost:5000"], #React dev server
     allow_credentials = True,
-    allow_methods = ["*"],
-    allow_headers = ["*"]
+    allow_methods = ["*"], #Allow all HTTP methods (GET(retrieve data),POST(create new data),PUT(update data),DELETE,etc.)
+    allow_headers = ["*"] #Allow all headers
 )
 
-#Create a new endpoint
+#Root endpoint - just to test if the server is running
 @app.get("/")
 def homepage():
     return {
@@ -30,7 +33,7 @@ def homepage():
         "docs":"/docs"
     }
 
-#Create a health check endpoint
+#Health check endpoint - useful for monitoring
 @app.get("/healthcheck")
 def healthcheck():
     return{
