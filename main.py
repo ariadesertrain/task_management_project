@@ -18,7 +18,7 @@ app = FastAPI(
 #This allows our React frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["HTTP://localhost:5000"], #React dev server
+    allow_origins = ["HTTP://localhost:5173"], #React dev server
     allow_credentials = True,
     allow_methods = ["*"], #Allow all HTTP methods (GET(retrieve data),POST(create new data),PUT(update data),DELETE,etc.)
     allow_headers = ["*"] #Allow all headers
