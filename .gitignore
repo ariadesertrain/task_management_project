@@ -208,3 +208,39 @@ __marimo__/
 
 #Ignore Virtual Environment
 my_virtual_environment/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+
+# RSA Keys - NEVER COMMIT!
+keys/
+*.pem
+*.key
+
+# Database
+*.db
+*.sqlite
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
